@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'constants.dart';
 
 class GenderCardContent extends StatelessWidget {
   GenderCardContent({required this.icon, this.gender = ''});
@@ -20,10 +21,7 @@ class GenderCardContent extends StatelessWidget {
         ),
         Text(
           gender,
-          style: TextStyle(
-            fontSize: 18.0,
-            color: Color(0xFF8D8E98),
-          ),
+          style: k_LABEL_TEXT_STYLE,
         )
       ],
     );
