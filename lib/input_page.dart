@@ -4,8 +4,9 @@ import 'genderCardContent.dart';
 import 'reusableCard.dart';
 import 'constants.dart';
 import 'roundedButton.dart';
+import 'resutlsScreen.dart';
 
-enum Gender { female, male, none }
+enum Gender { female, male }
 
 class InputPage extends StatefulWidget {
   @override
@@ -13,8 +14,8 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-  Gender selectedGender = Gender.none;
-  int height = 180;
+  Gender selectedGender = Gender.female;
+  int height = 165;
   int weight = 60;
   int age = 25;
 
@@ -208,15 +209,28 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Container(
-            child: Text(
-              'CALCULATE MY BMI',
-              style: k_BUTTON_TEXT_STYLE,
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ResultsScreen(),
+                ),
+              );
+            },
+            child: Container(
+              child: Align(
+                alignment: Alignment.center,
+                child: Text(
+                  'CALCULATE',
+                  style: k_BUTTON_TEXT_STYLE,
+                ),
+              ),
+              color: k_ACCENT_COLOR,
+              height: k_BOTTOM_BAR_HEIGHT,
+              width: double.infinity,
+              margin: EdgeInsets.only(top: 10.0),
             ),
-            color: k_ACCENT_COLOR,
-            height: k_BOTTOM_BAR_HEIGHT,
-            width: double.infinity,
-            margin: EdgeInsets.only(top: 10.0),
           )
         ],
       ),
