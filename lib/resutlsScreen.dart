@@ -2,6 +2,7 @@ import 'package:bmi_calculator/constants.dart';
 import 'package:bmi_calculator/reusableCard.dart';
 import 'package:flutter/material.dart';
 import 'reusableCard.dart';
+import 'bottomButton.dart';
 
 class ResultsScreen extends StatelessWidget {
   @override
@@ -9,31 +10,62 @@ class ResultsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'RESULTS',
+          'BMI CALCULATOR',
           style: k_LABEL_TEXT_STYLE,
         ),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Expanded(
-            child: Container(
-              child: Text(
-                'YOUR RESULTS',
-                style: k_VALUE_TEXT_STYLE,
-              ),
+          Container(
+            width: double.infinity,
+            margin: EdgeInsets.fromLTRB(20.0, 20.0, 0.0, 0.0),
+            child: Text(
+              'Your Results',
+              textAlign: TextAlign.left,
+              style: k_VALUE_TEXT_STYLE,
             ),
           ),
           Expanded(
-            flex: 5,
             child: ReusableCard(
               cardColor: k_ACTIVE_BACKGROUND_COLOR,
-              cardChild: Column(
+              cardChild: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [Text('OVERWEIGHT'), Text('Normal')],
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Text(
+                        'OVERWEIGHT',
+                        style: TextStyle(
+                          color: Colors.green,
+                          fontSize: 25.0,
+                        ),
+                      ),
+                      Text(
+                        '26.7',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w900,
+                          fontSize: 80.0,
+                        ),
+                      ),
+                      Text(
+                        'You have a higher than normal body weight.\n Try to exercise more.',
+                        style: TextStyle(
+                          fontSize: 15.0,
+                          fontStyle: FontStyle.italic,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
-          )
+          ),
+          BottomButton(
+            onTap: () {},
+            title: 'RE-CALCULATE',
+          ),
         ],
       ),
     );
